@@ -33,14 +33,26 @@ final class WallpaperSource {
         return fs;
     }
 
-    Bitmap next() {
+    static final class Wall {
+        final Bitmap bmp;
+        final String name;
+        Wall(Bitmap b, String n) { bmp = b; name = n; }
+    }
+
+    Wall next() {
         int i = index++;
         File[] fs = userFiles();
         if (fs.length > 0) {
-            Bitmap b = decode(fs[i % fs.length]);
-            if (b != null) return b;
+            File f = fs[i % fs.length];
+            Bitmap b = decode(f);
+            if (b != null) {
+                String n = f.getName();
+                int dot = n.lastIndexOf('.');
+                if (dot > 0) n = n.substring(0, dot);
+                return new Wall(b, n);
+            }
         }
-        return WallpaperGenerator.make(i, W, H);
+        return new Wall(WallpaperGenerator.make(i, W, H), WallpaperGenerator.name(i));
     }
 
     private Bitmap decode(File f) {

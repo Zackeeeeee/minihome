@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 final class Prefs {
+    static final int MAX_FAVS = 6;
     // Standard-dock. Ändras i appen genom att hålla in OK på en app i "Alla appar".
     static final String[] DEFAULT_FAVS = {
         "com.netflix.ninja",
@@ -47,5 +48,15 @@ final class Prefs {
         else { f.add(pkg); added = true; }
         setFavs(c, f);
         return added;
+    }
+
+    /** 1 = tillagd, 0 = borttagen, -1 = dockan full. */
+    static int toggleWithLimit(Context c, String pkg) {
+        List<String> f = getFavs(c);
+        if (f.contains(pkg)) { f.remove(pkg); setFavs(c, f); return 0; }
+        if (f.size() >= MAX_FAVS) return -1;
+        f.add(pkg);
+        setFavs(c, f);
+        return 1;
     }
 }

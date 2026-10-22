@@ -14,6 +14,8 @@ Lagg jpg/png i en mapp och kor:
   adb push mina_bilder/. /sdcard/Android/data/app.minihome.tv/files/walls/
 Ligger bilder dar roterar appen dem. Annars ritar den sex inbyggda naturmotiv.
 
-DOCKAN
-Standard: Netflix, TizenTube, SportzX, Downloader, TV Bro + "Alla appar".
-Hall in OK pa en app i "Alla appar" for att lagga till/ta bort den i dockan.
+UTSEENDE (tvOS-stil)
+Overst: bakgrundens namn och klocka. Mitten: frostad dock med dina favoriter (max 6).
+Under dockan: HDMI-ingangar och alla ovriga appar i breda rundade brickor. Tryck NER for att scrolla.
+Standardfavoriter: Netflix, TizenTube, SportzX, Downloader, TV Bro.
+Hall in OK pa en bricka for att lagga till/ta bort den i dockan.

@@ -27,9 +27,5 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".AllAppsActivity"
-            android:exported="false"
-            android:screenOrientation="landscape" />
     </application>
 </manifest>

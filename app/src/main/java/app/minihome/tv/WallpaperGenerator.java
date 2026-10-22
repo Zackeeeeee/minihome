@@ -21,6 +21,10 @@ final class WallpaperGenerator {
         {0xFF4C6A5E, 0xFFC9D7CC, 0xFFF2F2E0, 0xFF1D2F27, 0xFFB5C6BA}, // skogsdimma
         {0xFF0F3E5A, 0xFFFFB36B, 0xFFFFE9B8, 0xFF0A1F2E, 0xFF6FA3A8}, // havssolnedgang
     };
+    private static final String[] NAMES = {
+        "Gryning", "Alpin dag", "Skymning", "Natt", "Skogsdimma", "Havssolnedgång"
+    };
+    static String name(int index) { return NAMES[Math.floorMod(index, NAMES.length)]; }
     private static final int NIGHT = 3;
     private static final int N = 2048;
 
